@@ -1,4 +1,4 @@
-package com.soa.novelcreatorcore.model;
+package com.soa.novelcreatorcore.engine.model;
 
 public class Action {
     private Long id;

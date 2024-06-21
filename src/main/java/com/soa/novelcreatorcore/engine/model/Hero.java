@@ -1,4 +1,4 @@
-package com.soa.novelcreatorcore.model;
+package com.soa.novelcreatorcore.engine.model;
 
 /**
  * Нужно хранить состояние каждого героя по главам

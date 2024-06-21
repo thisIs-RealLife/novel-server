@@ -1,4 +1,4 @@
-package com.soa.novelcreatorcore.model;
+package com.soa.novelcreatorcore.engine.model;
 
 import java.util.Date;
 import java.util.List;
