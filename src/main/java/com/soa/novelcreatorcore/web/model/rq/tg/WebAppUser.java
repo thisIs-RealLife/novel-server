@@ -8,6 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class WebAppUser {
+    @JsonProperty("id")
     private Long id;
 
     @JsonProperty("is_bot")

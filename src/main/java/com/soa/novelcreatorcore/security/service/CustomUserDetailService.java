@@ -5,6 +5,7 @@ import com.soa.novelcreatorcore.repository.model.User;
 import com.soa.novelcreatorcore.repository.service.RoleRepository;
 import com.soa.novelcreatorcore.repository.service.UserRepository;
 import lombok.AllArgsConstructor;
+import lombok.NonNull;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,6 +24,15 @@ public class CustomUserDetailService implements UserDetailsService {
 
         Role role = roleRepository.getRoleById(user.getRoleId());
 
+        return org.springframework.security.core.userdetails.User.builder()
+                .username(user.getLogin())
+                .password(user.getPassword())
+                .roles(role.getRoleName().name())
+                .build();
+    }
+
+    public UserDetails mapUser(@NonNull User user) {
+        Role role = roleRepository.getRoleById(user.getRoleId());
         return org.springframework.security.core.userdetails.User.builder()
                 .username(user.getLogin())
                 .password(user.getPassword())

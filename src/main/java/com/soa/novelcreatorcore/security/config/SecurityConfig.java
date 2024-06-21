@@ -1,6 +1,9 @@
 package com.soa.novelcreatorcore.security.config;
 
+import com.soa.novelcreatorcore.repository.service.RoleRepository;
+import com.soa.novelcreatorcore.repository.service.UserRepository;
 import com.soa.novelcreatorcore.security.filter.JwtAuthenticationFilter;
+import com.soa.novelcreatorcore.security.jwt.JwtService;
 import com.soa.novelcreatorcore.security.service.CustomUserDetailService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -28,8 +31,20 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @EnableMethodSecurity
 @AllArgsConstructor
 public class SecurityConfig {
-    private final CustomUserDetailService customUserDetailService;
-    private JwtAuthenticationFilter jwtAuthenticationFilter;
+
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
+    private final JwtService jwtService;
+    private final PasswordEncoder passwordEncoder;
+
+    @Bean
+    public CustomUserDetailService customUserDetailService() {
+        return new CustomUserDetailService(userRepository, roleRepository);
+    }
+    @Bean
+    public JwtAuthenticationFilter jwtAuthenticationFilter() {
+        return new JwtAuthenticationFilter(jwtService, customUserDetailService());
+    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -51,20 +66,17 @@ public class SecurityConfig {
                         .anyRequest().authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authenticationProvider())
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+
 
     @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(customUserDetailService);
-        authProvider.setPasswordEncoder(passwordEncoder());
+        authProvider.setUserDetailsService(customUserDetailService());
+        authProvider.setPasswordEncoder(passwordEncoder);
         return authProvider;
     }
 
