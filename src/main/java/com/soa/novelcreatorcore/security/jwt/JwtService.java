@@ -1,6 +1,5 @@
 package com.soa.novelcreatorcore.security.jwt;
 
-import com.soa.novelcreatorcore.security.model.CustomUserDetails;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -20,6 +19,7 @@ import java.util.function.Function;
 public class JwtService {
     @Value("${token.signing.key}")
     private String jwtSigningKey;
+
     /**
      * Извлечение имени пользователя из токена
      *
@@ -38,10 +38,8 @@ public class JwtService {
      */
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
-        if (userDetails instanceof CustomUserDetails customUserDetails) {
-            claims.put("username", customUserDetails.getUsername());
-            claims.put("role", customUserDetails.getAuthorities());
-        }
+        claims.put("username", userDetails.getUsername());
+        claims.put("role", userDetails.getAuthorities());
         return generateToken(claims, userDetails);
     }
 

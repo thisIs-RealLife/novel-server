@@ -16,10 +16,18 @@ public interface RoleMapper {
 
     @Select("SELECT * FROM " + TABLE_NAME +
             " WHERE id = #{id};")
+    @Results({
+            @Result(property = "id", column = "id"),
+            @Result(property = "roleName", column = "role_name")
+    })
     Role getRoleById(Long id);
 
     @Select("SELECT * FROM " + TABLE_NAME +
             " WHERE role_name = #{roleName};")
+    @Results({
+            @Result(property = "id", column = "id"),
+            @Result(property = "roleName", column = "role_name")
+    })
     Role getRoleByRoleName(RoleName roleName);
 
     @Delete("DELETE FROM " + TABLE_NAME +

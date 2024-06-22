@@ -6,7 +6,6 @@ import com.soa.novelcreatorcore.repository.model.Role;
 import com.soa.novelcreatorcore.repository.model.RoleName;
 import com.soa.novelcreatorcore.repository.model.User;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +20,7 @@ public class UserRepository {
     private final PasswordEncoder passwordEncoder;
 
     public User createNewUser(User user) {
-        Role role = roleRepository.getRoleByRoleName(RoleName.ROLE_USER);
+        Role role = roleRepository.getRoleByRoleName(RoleName.USER);
         user.setRoleId(role.getId());
         String password = user.getPassword();
         if (password == null) {

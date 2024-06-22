@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.soa.novelcreatorcore.helper.JsonHelper;
+import com.soa.novelcreatorcore.helper.LongsHelper;
 import com.soa.novelcreatorcore.web.model.rq.tg.WebAppChat;
 import com.soa.novelcreatorcore.web.model.rq.tg.WebAppUser;
 import lombok.*;
@@ -57,8 +58,8 @@ public class TgInitDataRq {
         setChatType(params.get(CHAT_TYPE));
         setChatInstance(params.get(CHAT_INSTANCE));
         setStartParam(params.get(START_PARAM));
-        setCanSendAfter(Long.valueOf(params.get(CAN_SEND_AFTER)));
-        setAuthDate(Long.valueOf(params.get(AUTH_DATE)));
+        setCanSendAfter(LongsHelper.getLongFromString(params.get(CAN_SEND_AFTER)));
+        setAuthDate(LongsHelper.getLongFromString(params.get(AUTH_DATE)));
         setHash(params.get(HASH));
     }
 }

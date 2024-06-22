@@ -16,7 +16,7 @@ public interface UserMapper {
 
     @Select("SELECT CASE " +
             " WHEN EXISTS (SELECT 1 FROM " + TABLE_NAME +
-            " WHERE login = ${login} OR email = #{login}) THEN TRUE " +
+            " WHERE login = #{login} OR email = #{login}) THEN TRUE " +
             " ELSE FALSE " +
             " END AS user_exists;")
     boolean userExist(String login);
