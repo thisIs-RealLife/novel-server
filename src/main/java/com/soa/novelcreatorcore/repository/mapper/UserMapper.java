@@ -23,9 +23,11 @@ public interface UserMapper {
 
     @Select("SELECT * FROM " + TABLE_NAME +
     " WHERE login = #{login};")
+    @Result(property = "roleId", column = "role_id")
     User getUserByLogin(String login);
 
     @Select("SELECT * FROM " + TABLE_NAME +
             " WHERE email = #{email};")
+    @Result(property = "roleId", column = "role_id")
     User getUserByEmail(String email);
 }
