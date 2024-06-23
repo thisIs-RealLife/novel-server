@@ -6,5 +6,4 @@ public enum ActionType {
     GAME_CHARACTERISTIC,
     CHOOSE_ANSWER,
     EMOTIONAL_CHANGE
-
 }

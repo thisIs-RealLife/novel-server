@@ -4,9 +4,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-public class Novel {
+public class EngNovel {
     private Long id;
-
     private String novelName;
     private String novelAuthor;
     private String novelDescription;
@@ -28,7 +27,7 @@ public class Novel {
     /**
      * Главы
      */
-    private List<Chapter> chapters;
+    private List<EngChapter> engChapters;
     /**
      * Пользователи, которые начали проходить новеллу
      */

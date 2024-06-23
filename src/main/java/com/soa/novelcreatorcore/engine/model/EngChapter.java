@@ -2,9 +2,9 @@ package com.soa.novelcreatorcore.engine.model;
 
 import java.util.Set;
 
-public class Chapter {
+public class EngChapter {
     private Long id;
     private String title;
     private Integer sceneCount;
-    private Set<Scene> scenes;
+    private Set<EngScene> engScenes;
 }

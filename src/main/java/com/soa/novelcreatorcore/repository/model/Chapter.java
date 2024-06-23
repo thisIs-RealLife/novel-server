@@ -7,8 +7,12 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Role {
+public class Chapter {
     private Long id;
     @NonNull
-    private RoleName roleName;
+    private String title;
+    @NonNull
+    private Integer index;
+    @NonNull
+    private Long novelId;
 }

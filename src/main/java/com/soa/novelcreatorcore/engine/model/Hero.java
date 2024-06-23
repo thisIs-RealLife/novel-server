@@ -10,5 +10,4 @@ public class Hero {
     private String male;
     private Object gameCharacteristic;
     private HeroSet heroSet;
-
 }

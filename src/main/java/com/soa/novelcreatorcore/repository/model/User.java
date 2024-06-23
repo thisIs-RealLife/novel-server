@@ -9,8 +9,11 @@ import lombok.*;
 @AllArgsConstructor
 public class User {
     private Long id;
+    @NonNull
     private String login;
     private String email;
+    @NonNull
     private String password;
+    @NonNull
     private Long roleId;
 }
