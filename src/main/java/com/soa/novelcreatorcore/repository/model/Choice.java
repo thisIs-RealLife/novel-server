@@ -15,7 +15,7 @@ public class Choice {
     @NonNull
     private Long sceneId;
     @NonNull
+    private ActionType actionType;
     private String choiceText;
     private List<Scene> nextScenes;
-    private ActionType actionType;
 }
