@@ -15,6 +15,7 @@ public class Scene {
     private String text;
     @NonNull
     private Long chapterId;
-
+    @NonNull
+    private Boolean started;
     private List<Choice> choices;
 }

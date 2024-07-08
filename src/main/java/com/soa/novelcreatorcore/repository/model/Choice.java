@@ -2,6 +2,7 @@ package com.soa.novelcreatorcore.repository.model;
 
 import com.soa.novelcreatorcore.engine.model.ActionType;
 import lombok.*;
+import org.springframework.lang.Nullable;
 
 import java.util.List;
 
@@ -18,4 +19,6 @@ public class Choice {
     private ActionType actionType;
     private String choiceText;
     private List<Scene> nextScenes;
+    @Nullable
+    private Long choiceDataId;
 }

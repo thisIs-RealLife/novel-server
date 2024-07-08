@@ -14,8 +14,6 @@ CREATE TABLE e_user
     FOREIGN KEY (role_id) REFERENCES e_role (id)
 );
 
-
-
 CREATE TABLE e_novel
 (
     id            BIGSERIAL PRIMARY KEY,
@@ -42,20 +40,22 @@ CREATE TABLE e_scene
     id         BIGSERIAL primary key,
     text       VARCHAR(255) NOT NULL,
     chapter_id BIGINT       NOT NULL,
+    started    BOOLEAN      NOT NULL,
     FOREIGN KEY (chapter_id) references e_chapter (id)
 );
 
 CREATE TABLE e_choice
 (
-    id          BIGSERIAL PRIMARY KEY,
-    choiceText  VARCHAR(255),
-    action_type VARCHAR(100) NOT NULL
+    id             BIGSERIAL PRIMARY KEY,
+    choiceText     VARCHAR(255),
+    action_type    VARCHAR(100) NOT NULL,
+    choice_data_id BIGINT
 );
 
-CREATE TABLE choice_scenes
+CREATE TABLE e_choice_scenes
 (
     choice_id     BIGINT NOT NULL,
     next_scene_id BIGINT NOT NULL,
-    FOREIGN KEY (choice_id) REFERENCES choices (id),
-    FOREIGN KEY (next_scene_id) REFERENCES scenes (id)
+    FOREIGN KEY (choice_id) REFERENCES e_choice (id),
+    FOREIGN KEY (next_scene_id) REFERENCES e_scene (id)
 );
