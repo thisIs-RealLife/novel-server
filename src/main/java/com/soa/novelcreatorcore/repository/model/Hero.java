@@ -1,4 +1,6 @@
-package com.soa.novelcreatorcore.engine.model;
+package com.soa.novelcreatorcore.repository.model;
+
+import com.soa.novelcreatorcore.engine.model.HeroSet;
 
 /**
  * Нужно хранить состояние каждого героя по главам

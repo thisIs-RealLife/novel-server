@@ -1,5 +1,7 @@
 package com.soa.novelcreatorcore.engine.model;
 
+import com.soa.novelcreatorcore.repository.model.Hero;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
