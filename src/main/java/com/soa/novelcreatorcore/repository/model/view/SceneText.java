@@ -8,8 +8,10 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 public class SceneText {
-    private HeroRole hero;
+    private Long id;
+    private HeroRole heroRole;
     private String text;
     private Long sceneId;
 }

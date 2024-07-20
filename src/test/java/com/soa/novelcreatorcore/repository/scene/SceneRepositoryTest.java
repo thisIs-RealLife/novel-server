@@ -9,7 +9,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @SpringBootTest
 class SceneRepositoryTest {
@@ -26,21 +28,15 @@ class SceneRepositoryTest {
         Long sceneId = sceneRepository.createScene(scene);
         Scene scenefromBd = sceneRepository.getScene(sceneId);
         Assertions.assertEquals(scene, scenefromBd);
+
+        sceneRepository.updateScene(scene);
+        Assertions.assertEquals(scene, sceneRepository.getScene(sceneId));
+
+        List<Scene> allScenes = sceneRepository.getAllScenes(chapter.getId());
+        assertFalse(allScenes.isEmpty());
+
+        sceneRepository.deleteScene(sceneId);
+        Assertions.assertTrue(sceneRepository.getAllScenes(chapter.getId()).size() < allScenes.size());
     }
 
-    @Test
-    void getScene() {
-    }
-
-    @Test
-    void updateScene() {
-    }
-
-    @Test
-    void deleteScene() {
-    }
-
-    @Test
-    void getAllScenes() {
-    }
 }

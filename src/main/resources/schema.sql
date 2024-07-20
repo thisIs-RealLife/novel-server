@@ -48,7 +48,7 @@ CREATE TABLE e_scene_text
     id        BIGSERIAL primary key,
     text      VARCHAR(999) NOT NULL,
     hero_role int          NOT NULL,
-    scene_id  BIGSERIAL,
+    scene_id  BIGSERIAL UNIQUE NOT NULL,
     FOREIGN KEY (scene_id) references e_scene (id)
 );
 
