@@ -12,7 +12,7 @@ public interface ChapterMapper {
 
     @Options(useGeneratedKeys = true, keyProperty = "id")
     @Insert("INSERT INTO " + TABLE_NAME + " (title, index, novel_id) " +
-            "VALUES (#{title}, #{index}, #{novel_id})")
+            "VALUES (#{title}, #{index}, #{novelId})")
     long insert(Chapter chapter);
 
     @Select("SELECT * FROM " + TABLE_NAME + " where novel_id = #{novelId}")
@@ -23,4 +23,15 @@ public interface ChapterMapper {
             @Result(property = "novelId", column = "novel_id"),
     })
     List<Chapter> getByNovelId(Long novelId);
+
+    @Select("SELECT * FROM " + TABLE_NAME + " WHERE id = #{id}")
+    @Result(property = "novelId", column = "novel_id")
+    Chapter getById(Long id);
+
+    @Update("UPDATE " + TABLE_NAME + " set" +
+            " title = #{title}, index = #{index}, novel_id = #{novelId}")
+    void update(Chapter chapter);
+
+    @Delete("DELETE from " + TABLE_NAME + " where id = #{id}")
+    void delete(Long id);
 }

@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @PropertySources({
-        @PropertySource("classpath:application-production.yml")
+        @PropertySource("classpath:application-local.yml")
 })
 public class NovelCreatorCoreApplication implements CommandLineRunner {
     @Autowired

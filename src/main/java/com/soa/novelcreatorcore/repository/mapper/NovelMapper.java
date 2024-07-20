@@ -3,6 +3,8 @@ package com.soa.novelcreatorcore.repository.mapper;
 import com.soa.novelcreatorcore.repository.model.view.Novel;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
 @Mapper
 public interface NovelMapper {
     String TABLE_NAME = "e_novel";
@@ -12,7 +14,7 @@ public interface NovelMapper {
             + " VALUES (#{name}, #{author}, #{description}, #{image}, #{imageName}, #{chapterCount}, #{amount})")
     long insert(Novel novel);
 
-    @Select("SELECT FROM " + TABLE_NAME + " WHERE id = #{id}")
+    @Select("SELECT * FROM " + TABLE_NAME + " WHERE id = #{id}")
     @Results({
             @Result(property = "id", column = "id"),
             @Result(property = "name", column = "name"),
@@ -25,8 +27,21 @@ public interface NovelMapper {
     })
     Novel get(Long id);
 
+    @Select("SELECT * FROM " + TABLE_NAME)
+    @Results({
+            @Result(property = "id", column = "id"),
+            @Result(property = "name", column = "name"),
+            @Result(property = "author", column = "author"),
+            @Result(property = "description", column = "description"),
+            @Result(property = "image", column = "image"),
+            @Result(property = "imageName", column = "image_name"),
+            @Result(property = "amount", column = "amount"),
+            @Result(property = "chapterCount", column = "chapter_count")
+    })
+    List<Novel> getAll();
+
     @Update("UPDATE " + TABLE_NAME + " set name = #{name}, author = #{author}, " +
-            "description = #{description}, image = #{image}, image_name = ${imageName}," +
+            "description = #{description}, image = #{image}, image_name = #{imageName}," +
             "chapter_count = #{chapterCount}, amount = #{amount} WHERE id = #{id}")
     void update(Novel novel);
 

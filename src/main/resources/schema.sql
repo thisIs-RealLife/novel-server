@@ -38,11 +38,18 @@ CREATE TABLE e_chapter
 CREATE TABLE e_scene
 (
     id         BIGSERIAL primary key,
-    text       VARCHAR(255) NOT NULL,
     chapter_id BIGINT       NOT NULL,
     started    BOOLEAN      NOT NULL,
     finished   BOOLEAN      NOT NULL,
     FOREIGN KEY (chapter_id) references e_chapter (id)
+);
+CREATE TABLE e_scene_text
+(
+    id        BIGSERIAL primary key,
+    text      VARCHAR(999) NOT NULL,
+    hero_role int          NOT NULL,
+    scene_id  BIGSERIAL,
+    FOREIGN KEY (scene_id) references e_scene (id)
 );
 
 CREATE TABLE e_choice

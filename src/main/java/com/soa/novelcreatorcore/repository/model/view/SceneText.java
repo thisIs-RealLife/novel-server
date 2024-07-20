@@ -1,6 +1,5 @@
 package com.soa.novelcreatorcore.repository.model.view;
 
-import com.soa.novelcreatorcore.repository.model.Hero;
 import com.soa.novelcreatorcore.repository.model.HeroRole;
 import lombok.*;
 
@@ -12,4 +11,5 @@ import lombok.*;
 public class SceneText {
     private HeroRole hero;
     private String text;
+    private Long sceneId;
 }

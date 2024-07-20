@@ -9,14 +9,12 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 public class Scene {
     private Long id;
-    @NonNull
-    private String text;
     @NonNull
     private Long chapterId;
     @NonNull
     private Boolean started;
     private Boolean finished;
-    private List<Choice> choices;
 }
