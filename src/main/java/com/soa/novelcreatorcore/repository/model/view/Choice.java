@@ -1,10 +1,8 @@
-package com.soa.novelcreatorcore.repository.model;
+package com.soa.novelcreatorcore.repository.model.view;
 
 import com.soa.novelcreatorcore.engine.model.ActionType;
 import lombok.*;
 import org.springframework.lang.Nullable;
-
-import java.util.List;
 
 @Getter
 @Setter
@@ -18,7 +16,7 @@ public class Choice {
     @NonNull
     private ActionType actionType;
     private String choiceText;
-    private List<Scene> nextScenes;
+    private Scene nextScene;
     @Nullable
     private Long choiceDataId;
 }

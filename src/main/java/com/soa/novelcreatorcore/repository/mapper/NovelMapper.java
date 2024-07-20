@@ -1,6 +1,6 @@
 package com.soa.novelcreatorcore.repository.mapper;
 
-import com.soa.novelcreatorcore.repository.model.Novel;
+import com.soa.novelcreatorcore.repository.model.view.Novel;
 import org.apache.ibatis.annotations.*;
 
 @Mapper

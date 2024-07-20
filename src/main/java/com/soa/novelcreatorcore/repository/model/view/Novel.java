@@ -1,4 +1,4 @@
-package com.soa.novelcreatorcore.repository.model;
+package com.soa.novelcreatorcore.repository.model.view;
 
 import lombok.*;
 

@@ -1,4 +1,4 @@
-package com.soa.novelcreatorcore.repository.model;
+package com.soa.novelcreatorcore.repository.model.view;
 
 import lombok.*;
 
@@ -17,5 +17,6 @@ public class Scene {
     private Long chapterId;
     @NonNull
     private Boolean started;
+    private Boolean finished;
     private List<Choice> choices;
 }

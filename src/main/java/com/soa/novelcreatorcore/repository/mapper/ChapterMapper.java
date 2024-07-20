@@ -1,6 +1,6 @@
 package com.soa.novelcreatorcore.repository.mapper;
 
-import com.soa.novelcreatorcore.repository.model.Chapter;
+import com.soa.novelcreatorcore.repository.model.view.Chapter;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
