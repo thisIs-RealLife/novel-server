@@ -41,6 +41,7 @@ CREATE TABLE e_scene
     chapter_id BIGINT       NOT NULL,
     started    BOOLEAN      NOT NULL,
     finished   BOOLEAN      NOT NULL,
+    next_scene BIGINT,
     FOREIGN KEY (chapter_id) references e_chapter (id)
 );
 CREATE TABLE e_scene_text
@@ -63,8 +64,10 @@ CREATE TABLE e_choice
 CREATE TABLE e_choice_scenes
 (
     choice_id     BIGINT NOT NULL,
-    next_scene_id BIGINT NOT NULL,
+    scene_id      BIGINT NOT NULL,
+    next_scene_id BIGINT,
     FOREIGN KEY (choice_id) REFERENCES e_choice (id),
     FOREIGN KEY (next_scene_id) REFERENCES e_scene (id),
-    UNIQUE (choice_id, next_scene_id)
+    FOREIGN KEY (scene_id) REFERENCES e_scene (id),
+    UNIQUE (choice_id, scene_id)
 );

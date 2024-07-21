@@ -1,4 +1,4 @@
-package com.soa.novelcreatorcore.config;
+package com.soa.novelcreatorcore.config.db;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;

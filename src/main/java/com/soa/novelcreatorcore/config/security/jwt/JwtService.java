@@ -1,4 +1,4 @@
-package com.soa.novelcreatorcore.security.jwt;
+package com.soa.novelcreatorcore.config.security.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

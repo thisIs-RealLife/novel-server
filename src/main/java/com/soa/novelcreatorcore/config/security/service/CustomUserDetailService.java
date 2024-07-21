@@ -1,4 +1,4 @@
-package com.soa.novelcreatorcore.security.service;
+package com.soa.novelcreatorcore.config.security.service;
 
 import com.soa.novelcreatorcore.repository.model.Role;
 import com.soa.novelcreatorcore.repository.model.User;

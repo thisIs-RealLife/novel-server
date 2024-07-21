@@ -1,6 +1,7 @@
 package com.soa.novelcreatorcore.repository.model.view;
 
 import lombok.*;
+import org.springframework.lang.Nullable;
 
 import java.util.List;
 
@@ -16,5 +17,8 @@ public class Scene {
     private Long chapterId;
     @NonNull
     private Boolean started;
+    @Nullable
     private Boolean finished;
+    @Nullable
+    private Long nextScene;
 }

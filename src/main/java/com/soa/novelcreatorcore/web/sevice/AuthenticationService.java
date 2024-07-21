@@ -3,7 +3,7 @@ package com.soa.novelcreatorcore.web.sevice;
 import com.soa.novelcreatorcore.helper.TgHelper;
 import com.soa.novelcreatorcore.repository.model.User;
 import com.soa.novelcreatorcore.repository.service.UserRepository;
-import com.soa.novelcreatorcore.security.service.GenerateJwtService;
+import com.soa.novelcreatorcore.config.security.service.GenerateJwtService;
 import com.soa.novelcreatorcore.web.model.rp.TgInitDataRp;
 import com.soa.novelcreatorcore.web.model.rq.TgInitDataRq;
 import com.soa.novelcreatorcore.web.model.rq.tg.WebAppUser;

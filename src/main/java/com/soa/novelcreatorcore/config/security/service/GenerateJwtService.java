@@ -1,7 +1,7 @@
-package com.soa.novelcreatorcore.security.service;
+package com.soa.novelcreatorcore.config.security.service;
 
+import com.soa.novelcreatorcore.config.security.jwt.JwtService;
 import com.soa.novelcreatorcore.repository.model.User;
-import com.soa.novelcreatorcore.security.jwt.JwtService;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.security.core.userdetails.UserDetails;

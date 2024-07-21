@@ -1,10 +1,10 @@
-package com.soa.novelcreatorcore.security.config;
+package com.soa.novelcreatorcore.config.security.config;
 
 import com.soa.novelcreatorcore.repository.service.RoleRepository;
 import com.soa.novelcreatorcore.repository.service.UserRepository;
-import com.soa.novelcreatorcore.security.filter.JwtAuthenticationFilter;
-import com.soa.novelcreatorcore.security.jwt.JwtService;
-import com.soa.novelcreatorcore.security.service.CustomUserDetailService;
+import com.soa.novelcreatorcore.config.security.filter.JwtAuthenticationFilter;
+import com.soa.novelcreatorcore.config.security.jwt.JwtService;
+import com.soa.novelcreatorcore.config.security.service.CustomUserDetailService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;

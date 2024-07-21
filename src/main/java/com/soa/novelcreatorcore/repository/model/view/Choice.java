@@ -15,8 +15,10 @@ public class Choice {
     private Long sceneId;
     @NonNull
     private ActionType actionType;
+    @Nullable
     private String choiceText;
-    private Scene nextScene;
+    @Nullable
+    private Long nextScene;
     @Nullable
     private Long choiceDataId;
 }

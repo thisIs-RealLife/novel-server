@@ -1,7 +1,7 @@
-package com.soa.novelcreatorcore.security.filter;
+package com.soa.novelcreatorcore.config.security.filter;
 
-import com.soa.novelcreatorcore.security.jwt.JwtService;
-import com.soa.novelcreatorcore.security.service.CustomUserDetailService;
+import com.soa.novelcreatorcore.config.security.jwt.JwtService;
+import com.soa.novelcreatorcore.config.security.service.CustomUserDetailService;
 import io.micrometer.common.util.StringUtils;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

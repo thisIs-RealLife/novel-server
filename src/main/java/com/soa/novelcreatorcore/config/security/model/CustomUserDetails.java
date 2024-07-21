@@ -1,4 +1,4 @@
-package com.soa.novelcreatorcore.security.model;
+package com.soa.novelcreatorcore.config.security.model;
 
 import com.soa.novelcreatorcore.repository.model.Role;
 import org.springframework.security.core.GrantedAuthority;
