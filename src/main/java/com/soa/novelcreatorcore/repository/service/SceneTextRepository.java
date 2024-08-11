@@ -5,9 +5,12 @@ import com.soa.novelcreatorcore.repository.model.view.SceneText;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @AllArgsConstructor
+@Transactional(propagation = Propagation.REQUIRED)
 public class SceneTextRepository {
     private final SceneTextMapper sceneTextMapper;
 

@@ -1,4 +1,4 @@
-package com.soa.novelcreatorcore.web.model.rq.tg;
+package com.soa.novelcreatorcore.web.model.auth.rq.tg;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;

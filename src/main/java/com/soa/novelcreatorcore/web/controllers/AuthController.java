@@ -1,8 +1,8 @@
 package com.soa.novelcreatorcore.web.controllers;
 
-import com.soa.novelcreatorcore.web.model.rp.TgInitDataRp;
-import com.soa.novelcreatorcore.web.model.rq.TgInitDataRq;
-import com.soa.novelcreatorcore.web.sevice.AuthenticationService;
+import com.soa.novelcreatorcore.web.model.auth.rp.TgInitDataRp;
+import com.soa.novelcreatorcore.web.model.auth.rq.TgInitDataRq;
+import com.soa.novelcreatorcore.web.services.impl.AuthenticationServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,10 +19,10 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class AuthController {
 
-    private final AuthenticationService authenticationService;
+    private final AuthenticationServiceImpl authenticationServiceImpl;
 
     @PostMapping("/tg")
     public ResponseEntity<TgInitDataRp> authenticate(@RequestParam Map<String, String> params) throws NoSuchAlgorithmException, InvalidKeyException {
-        return ResponseEntity.ok(authenticationService.authenticate(new TgInitDataRq(params)));
+        return ResponseEntity.ok(authenticationServiceImpl.authenticate(new TgInitDataRq(params)));
     }
 }

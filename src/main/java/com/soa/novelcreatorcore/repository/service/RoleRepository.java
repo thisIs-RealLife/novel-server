@@ -5,9 +5,13 @@ import com.soa.novelcreatorcore.repository.model.Role;
 import com.soa.novelcreatorcore.repository.model.RoleName;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @AllArgsConstructor
+@Transactional(propagation = Propagation.REQUIRED)
+
 public class RoleRepository {
 
     private final RoleMapper roleMapper;

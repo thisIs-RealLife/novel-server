@@ -4,11 +4,14 @@ import com.soa.novelcreatorcore.repository.mapper.NovelMapper;
 import com.soa.novelcreatorcore.repository.model.view.Novel;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Repository
 @AllArgsConstructor
+@Transactional(propagation = Propagation.REQUIRED)
 public class NovelRepository {
 
     private final NovelMapper novelMapper;

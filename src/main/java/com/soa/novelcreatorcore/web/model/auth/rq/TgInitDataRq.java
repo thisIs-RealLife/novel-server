@@ -1,14 +1,11 @@
-package com.soa.novelcreatorcore.web.model.rq;
+package com.soa.novelcreatorcore.web.model.auth.rq;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectReader;
 import com.soa.novelcreatorcore.helper.JsonHelper;
 import com.soa.novelcreatorcore.helper.LongsHelper;
-import com.soa.novelcreatorcore.web.model.rq.tg.WebAppChat;
-import com.soa.novelcreatorcore.web.model.rq.tg.WebAppUser;
+import com.soa.novelcreatorcore.web.model.auth.rq.tg.WebAppUser;
+import com.soa.novelcreatorcore.web.model.auth.rq.tg.WebAppChat;
 import lombok.*;
 
 import java.util.Map;

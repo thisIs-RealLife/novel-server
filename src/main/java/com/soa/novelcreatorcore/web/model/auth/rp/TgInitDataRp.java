@@ -1,4 +1,4 @@
-package com.soa.novelcreatorcore.web.model.rp;
+package com.soa.novelcreatorcore.web.model.auth.rp;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

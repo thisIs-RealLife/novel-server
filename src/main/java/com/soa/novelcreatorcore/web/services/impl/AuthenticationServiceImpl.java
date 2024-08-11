@@ -1,12 +1,12 @@
-package com.soa.novelcreatorcore.web.sevice;
+package com.soa.novelcreatorcore.web.services.impl;
 
 import com.soa.novelcreatorcore.helper.TgHelper;
 import com.soa.novelcreatorcore.repository.model.User;
 import com.soa.novelcreatorcore.repository.service.UserRepository;
 import com.soa.novelcreatorcore.config.security.service.GenerateJwtService;
-import com.soa.novelcreatorcore.web.model.rp.TgInitDataRp;
-import com.soa.novelcreatorcore.web.model.rq.TgInitDataRq;
-import com.soa.novelcreatorcore.web.model.rq.tg.WebAppUser;
+import com.soa.novelcreatorcore.web.model.auth.rp.TgInitDataRp;
+import com.soa.novelcreatorcore.web.model.auth.rq.TgInitDataRq;
+import com.soa.novelcreatorcore.web.model.auth.rq.tg.WebAppUser;
 import jakarta.annotation.Nonnull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,7 +17,7 @@ import java.security.NoSuchAlgorithmException;
 
 @Service
 @RequiredArgsConstructor
-public class AuthenticationService {
+public class AuthenticationServiceImpl {
 
     @Value("${tg.algorithm}")
     private String HMAC_SHA256;

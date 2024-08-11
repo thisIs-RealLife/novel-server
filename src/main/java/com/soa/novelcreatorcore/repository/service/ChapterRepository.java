@@ -5,11 +5,14 @@ import com.soa.novelcreatorcore.repository.model.view.Chapter;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Repository
 @AllArgsConstructor
+@Transactional(propagation = Propagation.REQUIRED)
 public class ChapterRepository {
     private final ChapterMapper chapterMapper;
 

@@ -38,17 +38,17 @@ CREATE TABLE e_chapter
 CREATE TABLE e_scene
 (
     id         BIGSERIAL primary key,
-    chapter_id BIGINT       NOT NULL,
-    started    BOOLEAN      NOT NULL,
-    finished   BOOLEAN      NOT NULL,
+    chapter_id BIGINT  NOT NULL,
+    started    BOOLEAN NOT NULL,
+    finished   BOOLEAN NOT NULL,
     next_scene BIGINT,
     FOREIGN KEY (chapter_id) references e_chapter (id)
 );
 CREATE TABLE e_scene_text
 (
     id        BIGSERIAL primary key,
-    text      VARCHAR(999) NOT NULL,
-    hero_role int          NOT NULL,
+    text      VARCHAR(999)     NOT NULL,
+    hero_role int              NOT NULL,
     scene_id  BIGSERIAL UNIQUE NOT NULL,
     FOREIGN KEY (scene_id) references e_scene (id)
 );
@@ -56,18 +56,22 @@ CREATE TABLE e_scene_text
 CREATE TABLE e_choice
 (
     id             BIGSERIAL PRIMARY KEY,
-    choiceText     VARCHAR(255),
+    choice_text    VARCHAR(255),
     action_type    VARCHAR(100) NOT NULL,
-    choice_data_id BIGINT
+    scene_id       BIGINT       NOT NULL,
+    next_scene_id  BIGINT,
+    choice_data_id BIGINT,
+    FOREIGN KEY (next_scene_id) REFERENCES e_scene (id),
+    FOREIGN KEY (scene_id) REFERENCES e_scene (id)
 );
 
-CREATE TABLE e_choice_scenes
-(
-    choice_id     BIGINT NOT NULL,
-    scene_id      BIGINT NOT NULL,
-    next_scene_id BIGINT,
-    FOREIGN KEY (choice_id) REFERENCES e_choice (id),
-    FOREIGN KEY (next_scene_id) REFERENCES e_scene (id),
-    FOREIGN KEY (scene_id) REFERENCES e_scene (id),
-    UNIQUE (choice_id, scene_id)
-);
+-- CREATE TABLE e_choice_scenes
+-- (
+--     choice_id     BIGINT NOT NULL,
+--     scene_id      BIGINT NOT NULL,
+--     next_scene_id BIGINT,
+--     FOREIGN KEY (choice_id) REFERENCES e_choice (id),
+--     FOREIGN KEY (next_scene_id) REFERENCES e_scene (id),
+--     FOREIGN KEY (scene_id) REFERENCES e_scene (id),
+--     UNIQUE (choice_id, scene_id)
+-- );
