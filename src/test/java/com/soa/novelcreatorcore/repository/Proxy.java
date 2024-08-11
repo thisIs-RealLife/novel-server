@@ -10,11 +10,16 @@ import com.soa.novelcreatorcore.repository.service.ChapterRepository;
 import com.soa.novelcreatorcore.repository.service.NovelRepository;
 import com.soa.novelcreatorcore.repository.service.SceneRepository;
 import org.junit.jupiter.api.Assertions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class Proxy {
+    private final static Logger log = LoggerFactory.getLogger("CORE");
 
     @Autowired
     private NovelRepository novelRepository;
@@ -41,8 +46,13 @@ public class Proxy {
 
     public Novel createNovel() {
         Novel novelEntity = NovelHelper.createNovelEntity();
+        log.info("Novel created: {}", novelEntity);
         Long id = novelRepository.create(novelEntity);
+        log.info("Novel created: {}", id);
         Novel byId = novelRepository.getById(id);
+        List<Novel> all = novelRepository.getAll();
+        log.info("Novels found: {}", all);
+        log.info("Novel created: {}", byId);
         Assertions.assertNotNull(byId);
         return byId;
     }

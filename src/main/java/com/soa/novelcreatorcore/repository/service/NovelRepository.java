@@ -24,7 +24,7 @@ public class NovelRepository {
     public Long create(Novel novel) {
         long insert = novelMapper.insert(novel);
         if (insert != 0) {
-            return insert;
+            return novel.getId();
         }
         return null;
     }

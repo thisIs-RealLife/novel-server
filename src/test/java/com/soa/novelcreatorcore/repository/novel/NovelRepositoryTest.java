@@ -62,6 +62,9 @@ public class NovelRepositoryTest {
         Long id = novelRepository.create(novel);
         Novel fromBd = novelRepository.getById(id);
 
+        Novel novelEntity = NovelHelper.createNovelEntity();
+        Long l = novelRepository.create(novelEntity);
+
         Assertions.assertNotNull(id);
         Assertions.assertEquals(novel, fromBd);
         return id;

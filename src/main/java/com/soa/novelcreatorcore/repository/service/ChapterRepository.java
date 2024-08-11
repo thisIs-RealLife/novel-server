@@ -16,18 +16,21 @@ public class ChapterRepository {
     public List<Chapter> getByNovelId(@NonNull Long novelId) {
         return chapterMapper.getByNovelId(novelId);
     }
+
     public Long create(@NonNull Chapter chapter) {
         long insert = chapterMapper.insert(chapter);
         if (insert == 0) {
             return null;
         }
-        return insert;
+        return chapter.getId();
     }
+
     public Chapter getById(@NonNull Long chapterId) {
         return chapterMapper.getById(chapterId);
     }
+
     public void update(@NonNull Chapter chapter) {
-        if (chapter.getId() == null ) {
+        if (chapter.getId() == null) {
             throw new IllegalArgumentException("Id cannot be null");
         }
         chapterMapper.update(chapter);

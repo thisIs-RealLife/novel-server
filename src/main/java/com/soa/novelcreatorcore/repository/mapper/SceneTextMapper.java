@@ -8,6 +8,7 @@ import org.apache.ibatis.type.EnumOrdinalTypeHandler;
 @Mapper
 public interface SceneTextMapper {
     String TABLE_NAME = "e_scene_text";
+    String RESULT = "SceneTextResult";
 
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     @Insert("INSERT INTO " + TABLE_NAME + "(text, hero_role, scene_id)"
@@ -17,7 +18,7 @@ public interface SceneTextMapper {
     Long insert(SceneText sceneText);
 
     @Select("SELECT * from " + TABLE_NAME + " where scene_id = #{sceneId}")
-    @Results({
+    @Results(id = RESULT, value = {
             @Result(property = "id", column = "id"),
             @Result(property = "text", column = "text"),
             @Result(property = "heroRole", column = "hero_role", javaType = HeroRole.class, typeHandler = EnumOrdinalTypeHandler.class),
@@ -27,12 +28,7 @@ public interface SceneTextMapper {
 
 
     @Select("SELECT * from " + TABLE_NAME + " where id = #{id}")
-    @Results({
-            @Result(property = "id", column = "id"),
-            @Result(property = "text", column = "text"),
-            @Result(property = "heroRole", column = "hero_role", javaType = HeroRole.class, typeHandler = EnumOrdinalTypeHandler.class),
-            @Result(property = "sceneId", column = "scene_id"),
-    })
+    @ResultMap(RESULT)
     SceneText getById(Long id);
 
     @Update("UPDATE " + TABLE_NAME + " SET text = #{text}, hero_role = #{heroRole}, scene_id = #{sceneId}"

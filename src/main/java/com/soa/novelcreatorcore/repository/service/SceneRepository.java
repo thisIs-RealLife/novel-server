@@ -19,7 +19,7 @@ public class SceneRepository {
         if (insert == 0) {
             return null;
         }
-        return insert;
+        return scene.getId();
     }
 
     public Scene getScene(@NonNull Long id) {

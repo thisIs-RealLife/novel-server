@@ -15,7 +15,7 @@ public interface NovelMapper {
     long insert(Novel novel);
 
     @Select("SELECT * FROM " + TABLE_NAME + " WHERE id = #{id}")
-    @Results({
+    @Results(id = "novelResult", value = {
             @Result(property = "id", column = "id"),
             @Result(property = "name", column = "name"),
             @Result(property = "author", column = "author"),
@@ -28,16 +28,7 @@ public interface NovelMapper {
     Novel get(Long id);
 
     @Select("SELECT * FROM " + TABLE_NAME)
-    @Results({
-            @Result(property = "id", column = "id"),
-            @Result(property = "name", column = "name"),
-            @Result(property = "author", column = "author"),
-            @Result(property = "description", column = "description"),
-            @Result(property = "image", column = "image"),
-            @Result(property = "imageName", column = "image_name"),
-            @Result(property = "amount", column = "amount"),
-            @Result(property = "chapterCount", column = "chapter_count")
-    })
+    @ResultMap("novelResult")
     List<Novel> getAll();
 
     @Update("UPDATE " + TABLE_NAME + " set name = #{name}, author = #{author}, " +

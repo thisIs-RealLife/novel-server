@@ -23,7 +23,7 @@ public class UserRepository {
         Role role = roleRepository.getRoleByRoleName(RoleName.USER);
         user.setRoleId(role.getId());
         String password = user.getPassword();
-        if (password == null) {
+        if (password == null) { //TODO
             user.setPassword(passwordEncoder.encode(PasswordUtil.generatePassword(PasswordUtil.PasswordDifficulty.DIFFICULTY_USER)));
         }
         insert(user);

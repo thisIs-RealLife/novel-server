@@ -24,7 +24,7 @@ public class SceneTextRepository {
         if (insert == 0) {
             return null;
         }
-        return insert;
+        return sceneText.getId();
     }
 
     public void update(@NonNull SceneText sceneText) {
